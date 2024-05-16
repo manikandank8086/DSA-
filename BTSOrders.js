@@ -309,107 +309,92 @@
 // bts.PostOrderTraversal()
 
 
-class TreeNode{
-    constructor(value){
-        this.value=value
-        this.left=null
-        this.right=null
-    }
-}
-class BinaryTree{
-    constructor(){
-        this.root=null
-    }
-    insert(value){
-        this.root=this._insertRecursive(this.root,value)
-    }
-    _insertRecursive(node,value){
-        if(node===null){
-            return new TreeNode(value)
-        }
-        if(value<node.value){
-            node.left=this._insertRecursive(node.left,value)
+// class TreeNode{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+// class BinaryTree{
+//     constructor(){
+//         this.root=null
+//     }
+//     insert(value){
+//         this.root=this._insertRecursive(this.root,value)
+//     }
+//     _insertRecursive(node,value){
+//         if(node===null){
+//             return new TreeNode(value)
+//         }
+//         if(value<node.value){
+//             node.left=this._insertRecursive(node.left,value)
 
-        }else if(value>node.value){
-            node.right=this._insertRecursive(node.right,value)
-        }
-        return node
-    }
+//         }else if(value>node.value){
+//             node.right=this._insertRecursive(node.right,value)
+//         }
+//         return node
+//     }
 
 
-    // contains(value){
-    //     return this._constainsRecursively(this.root,value)
-    // }
-    // _constainsRecursively(node,value){
-    //     if(node===null){
-    //         return false
-    //     }
-    //     if(value===node.value){
-    //         return true
-    //     }else if(value < node.value){
-    //         return this._constainsRecursively(node.left,value)
-    //     }else{
-    //         return this._constainsRecursively(node.right,value)
-    //     }
-    // }
 
-    contains(value){
-        return  this._containsRecursively(this.root,value)
-    }
-    _containsRecursively(node,value){
-        if(node ===null){
-            return false
-        }
-        if(value=== node.value){
-            return true
-        }else if (value < node.value){
-            return  this._containsRecursively(node.left,value)
-        }else {
-            return this._containsRecursively(node.right,value)
-        }
-    }
+//     contains(value){
+//         return  this._containsRecursively(this.root,value)
+//     }
+//     _containsRecursively(node,value){
+//         if(node ===null){
+//             return false
+//         }
+//         if(value=== node.value){
+//             return true
+//         }else if (value < node.value){
+//             return  this._containsRecursively(node.left,value)
+//         }else {
+//             return this._containsRecursively(node.right,value)
+//         }
+//     }
 
-    inorderTraverse(){
-        this._inorderRecusive(this.root)
-    }
-    _inorderRecusive(node){
-        if(node !==null){
-            this._inorderRecusive(node.left)
-            console.log(node.value)
-            this._inorderRecusive(node.right)
-        }
-            }
-            preorderTraversal(){
-                this._preorderRecursive(this.root)
-            }
-            _preorderRecursive(node){
-                if(node !==null){
-                console.log(node.value)
-                this._preorderRecursive(node.left)
-                this._preorderRecursive(node.right)
-                }
-            }
+//     inorderTraverse(){
+//         this._inorderRecusive(this.root)
+//     }
+//     _inorderRecusive(node){
+//         if(node !==null){
+//             this._inorderRecusive(node.left)
+//             console.log(node.value)
+//             this._inorderRecusive(node.right)
+//         }
+//             }
+//             preorderTraversal(){
+//                 this._preorderRecursive(this.root)
+//             }
+//             _preorderRecursive(node){
+//                 if(node !==null){
+//                 console.log(node.value)
+//                 this._preorderRecursive(node.left)
+//                 this._preorderRecursive(node.right)
+//                 }
+//             }
 
-            postorderTraversal(){
-                this._postorderTravers(this.root)
-            }
-            _postorderTravers(node){
-                if(node!==null){
-                this._postorderTravers(node.left)
-                this._postorderTravers(node.right)
-                console.log(node.value)
-                }
-            }
-}
+//             postorderTraversal(){
+//                 this._postorderTravers(this.root)
+//             }
+//             _postorderTravers(node){
+//                 if(node!==null){
+//                 this._postorderTravers(node.left)
+//                 this._postorderTravers(node.right)
+//                 console.log(node.value)
+//                 }
+//             }
+// }
 
-const bts =new BinaryTree()
-bts.insert(1)
-bts.insert(2)
-bts.insert(3)
-bts.insert(4)
-bts.insert(5)
-bts.insert(7)
-console.log('search is '+ bts.contains(4))
+// const bts =new BinaryTree()
+// bts.insert(1)
+// bts.insert(2)
+// bts.insert(3)
+// bts.insert(4)
+// bts.insert(5)
+// bts.insert(7)
+// console.log('search is '+ bts.contains(4))
 // console.log('pre')
 // bts.preorderTraversal()
 // console.log('inn')
@@ -417,3 +402,210 @@ console.log('search is '+ bts.contains(4))
 
 // console.log('post')
 // bts.postorderTraversal()
+
+
+// 
+
+
+// class TreeNode{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+
+// }
+
+// class BinaryTree{
+//     constructor(){
+//         this.root=null
+//     }
+
+//     insert(value){
+//         this.root=this._insertRecursively(this.root,value)
+//     }
+//     _insertRecursively(node,value){
+//         if(node === null){
+//             return new TreeNode(value)
+//         }
+
+//         if(value<node.value){
+//             node.left=this._insertRecursively(node.left,value)
+//         }
+//         if(value>node.value){
+//             node.right=this._insertRecursively(node.right,value)
+//         }
+//         return node
+//     }
+
+
+//     InorderTraversal(){
+//         this._inorderRecursively(this.root)
+//     }
+//     _inorderRecursively(node){
+//         if(node !==null){
+//             this._inorderRecursively(node.left)
+//             console.log(node.value)
+//             this._inorderRecursively(node.right)
+//         }
+//     }
+
+//     PostorderTraversal(){
+//         this._postorderRecursive(this.root)
+//     }
+//     _postorderRecursive(node){
+//         if(node !==null){
+//             this._postorderRecursive(node.left)
+
+//             this._postorderRecursive(node.right)
+//             console.log(node.value)
+//         }
+//     }
+
+//     PreorderTraversal(){
+//         this._preorderRecursive(this.root)
+//     }
+//     _preorderRecursive(node){
+//         if(node !== null){
+//             console.log(node.value)
+//             this._preorderRecursive(node.left)
+//             this._preorderRecursive(node.right)
+//         }
+//     }
+    
+// }
+
+
+// const bts=new BinaryTree()
+// bts.insert(1)
+// bts.insert(2)
+// bts.insert(3)
+// bts.insert(4)
+// bts.insert(5)
+
+// console.log('Inorder')
+// bts.InorderTraversal()
+// console.log('post Order')
+// bts.PostorderTraversal()
+// console.log('Inorder')
+// bts.InorderTraversal()
+
+
+// class TreeNode{
+//     constructor(value){
+//         this.value= value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+
+// class BinaryTree{
+//     constructor() {
+//          this.root=null
+//     }
+
+//     insert(value){
+//         this.root=this._insertRecursively(this.root,value)
+//     }
+//     _insertRecursively(node,value){
+//         if(node === null){
+//             return new TreeNode(value)
+//         }
+//         if(value<node.left){
+//             node.left=this._insertRecursively(node.left,value)
+//         }
+//         if(value>node.value){
+//             node.right=this._insertRecursively(node.right,value)
+//         }
+//         return node
+//     }
+
+//     InorderTraversal(){
+//         this._inorderRecursively(this.root)
+//     }
+//     _inorderRecursively(node){
+//         if(node !== null){
+//            this._inorderRecursively(node.left)
+//            console.log(node.value)
+//            this._inorderRecursively(node.right)
+//         }
+//     }
+
+//     contains(value){
+//         return this._containValue(this.root,value)
+//     }
+//     _containValue(node,value){
+//         if(node==null){
+//             return false
+//         }
+//         if(value=== node.value){
+//             return true
+//         }else if(value<node.left){
+//             return this._containValue(node.left,value)
+//         }else {
+//             return this._containValue(node.right,value)
+//         }
+
+//     }
+// 
+
+// const bts=new BinaryTree()
+// bts.insert(1)
+// bts.insert(2)
+// bts.insert(3)
+// bts.insert(4)
+// bts.insert(5)
+// bts.insert(6)
+
+// console.log('Inorder traversal')
+// bts.InorderTraversal()
+
+// console.log(bts.contains(11))
+
+
+class TreeNode{
+    constructor(value){
+        this.value= value
+        this.left = null
+        this.right=null
+    }
+}
+class BinaryTree{
+    constructor(){
+        this.root=null
+    }
+
+    insert(value){
+        this.root= this._insertValue(this.root,value)
+    }
+    _insertValue(node,value){
+        if(node ===null){
+            return  new TreeNode(value)
+        }
+        if(value<node.value){
+            node.left=this._insertValue(node.left,value)
+        }
+        if(value>node.value){
+            node.right=this._insertValue(node.right,value)
+        }
+        return node
+    }
+
+    InorderTraversal(){
+        this._inorderRecursive(this.root)
+    }
+    _inorderRecursive(node){
+        if(node !==null){
+            this._inorderRecursive(node.left)
+            console.log(node.value)
+            this._inorderRecursive(node.right)
+        }
+    }
+}
+
+const bst = new BinaryTree()
+bst.insert(2)
+bst.insert(3)
+bst.insert(5)
+bst.insert(6)
+console.log(bst.InorderTraversal())
