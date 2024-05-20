@@ -222,51 +222,259 @@
 
 // console.log(graph.bfs('A'))
 
-class Graph {
-    constructor() {
-        this.adjacencyList = {};
+// class Graph {
+//     constructor() {
+//         this.adjacencyList = {};
+//     }
+
+//     addVertex(vertex) {
+//         if (!this.adjacencyList[vertex]) {
+//             this.adjacencyList[vertex] = [];
+//         }
+//     }
+
+//     addEdge(vertex1, vertex2) {
+//         this.adjacencyList[vertex1].push(vertex2);
+//         this.adjacencyList[vertex2].push(vertex1);
+//     }
+
+//     bfs(start) {
+//         const result = [];
+//         const visited = {};
+//         const queue = [start];
+//         visited[start] = true;
+
+//         while (queue.length) {
+//             const currentVertex = queue.shift();
+//             result.push(currentVertex);
+
+//             this.adjacencyList[currentVertex].forEach((neighbor) => {
+//                 if (!visited[neighbor]) {
+//                     visited[neighbor] = true;
+//                     queue.push(neighbor);
+//                 }
+//             });
+//         }
+//         return result;
+//     }
+// }
+
+// const graph = new Graph();
+// graph.addVertex('A');
+// graph.addVertex('B');
+// graph.addVertex('C');
+// graph.addVertex('D');
+// graph.addEdge('A', 'B');
+// graph.addEdge('A', 'C');
+// graph.addEdge('B', 'C');
+// graph.addEdge('C', 'D');
+
+// console.log(graph.bfs('A')); // Output: ['A', 'B', 'C', 'D']
+
+
+
+// class Graph {
+//     constructor(){
+//         this.adjacencyList={}
+//     }
+
+//     addEdge(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex]=[]
+//         }
+//     }
+
+//     addVertex(vertex1,vertex2){
+//         this.adjacencyList[vertex1].push(vertex2)
+//         this.adjacencyList[vertex2].push(vertex1)
+//     }
+
+//     bfs(start){
+//         const result = []
+//         const queue=[start]
+//         const visited={}
+
+//         queue[start]=true
+
+//         while(queue.length){
+//             const currentVertex=queue.shift()
+//             result.push(currentVertex)
+
+//             this.adjacencyList[currentVertex].forEach((neighbor)=>{
+//                   if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     queue.push(neighbor)
+//                   }
+//             })
+//         }
+//         return result
+//     }
+// }
+
+// const graph= new Graph()
+
+// graph.addEdge('A')
+// graph.addEdge('B')
+// graph.addEdge('C')
+// graph.addEdge('D')
+
+// graph.addVertex('A','B')
+// graph.addVertex('A','C')
+// graph.addVertex('C',"D")
+// graph.addVertex('C','D')
+
+// console.log('queue values  is '+ graph.bfs('A'))
+
+
+
+// class Graph{
+//     constructor(){
+//         this.adjacencyList={}
+//     }
+
+//     addEdge(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex]=[]
+//         }
+//     }
+
+//     addVertex(vertex1,vertex2){
+//         this.adjacencyList[vertex1].push(vertex2)
+//         this.adjacencyList[vertex1].push(vertex1)
+//     }
+
+//     dfs(start){
+//         const stack = [start]
+//         const result=[]
+//         const visited={}
+
+//         stack[start]=true
+//         while(stack.length){
+//             const currentNode=stack.pop()
+//             result.push(currentNode)
+
+//             this.adjacencyList[currentNode].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     stack.push(neighbor)
+//                 }
+
+//             })
+//         }
+//         return result
+//     }
+// }
+
+// const graph= new Graph()
+// graph.addEdge('A')
+// graph.addEdge('B')
+// graph.addEdge('C')
+// graph.addEdge('D')
+// graph.addVertex('A','B')
+// graph.addVertex('A','C')
+// graph.addVertex('B','D')
+// graph.addVertex('B','C')
+
+// console.log('this is stack values '+ graph.dfs('A'))
+
+
+
+// class Graph{
+//     constructor(){
+//         this.adjcencyList={}
+//     }
+//     addEdge(vertex){
+//         if(!this.adjcencyList[vertex]){
+//             this.adjcencyList[vertex]=[]
+//         }
+//     }
+
+//     addVertex(vertex1,vertex2){
+//         this.adjcencyList[vertex1].push(vertex2)
+//         this.adjcencyList[vertex2].push(vertex1)
+//     }
+
+
+//     dfs(start){
+//         const result=[]
+//         const visited={}
+//         const stack=[start]
+//         stack[start]=true
+
+//         while(stack.length){
+//             const currentVertex=stack.pop()
+//             result.push(currentVertex)
+
+//             this.adjcencyList[currentVertex].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     stack.push(neighbor)
+//                 }
+//             })
+//         }
+//         return result
+//     }
+// }
+
+// const graph= new Graph()
+// graph.addEdge('A')
+// graph.addEdge('B')
+// graph.addEdge('C')
+// graph.addEdge('D')
+// graph.addVertex('A','B')
+// graph.addVertex('A','C')
+// graph.addVertex('B','D')
+// graph.addVertex('B','C')
+
+// console.log('graph traversal' + graph.dfs('A'))
+
+class Graph{
+    constructor(){
+        this.adjcacncyList={}
     }
 
-    addVertex(vertex) {
-        if (!this.adjacencyList[vertex]) {
-            this.adjacencyList[vertex] = [];
+    addVertex(vertex){
+        if(!this.adjcacncyList[vertex]){
+            this.adjcacncyList[vertex]=[]
         }
     }
 
-    addEdge(vertex1, vertex2) {
-        this.adjacencyList[vertex1].push(vertex2);
-        this.adjacencyList[vertex2].push(vertex1);
+    addEdge(vertex1,vertex2){
+        this.adjcacncyList[vertex1].push(vertex2)
+        this.adjcacncyList[vertex2].push(vertex1)
     }
+ 
+     bfs(start){
+        const result=[]
+        const visited={}
+        const queue=[start]
 
-    bfs(start) {
-        const result = [];
-        const visited = {};
-        const queue = [start];
-        visited[start] = true;
+        visited[start]=true
 
-        while (queue.length) {
-            const currentVertex = queue.shift();
-            result.push(currentVertex);
+        while(queue.length){
+            const currentVertex=queue.shift()
+            result.push(currentVertex)
+            
 
-            this.adjacencyList[currentVertex].forEach((neighbor) => {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    queue.push(neighbor);
-                }
-            });
+                this.adjcacncyList[currentVertex].forEach((neighbot)=>{
+                    if(!visited[neighbot]){
+                        visited[neighbot]=true
+                        queue.push(neighbot)
+                    }
+                })
+            }
+            return result
         }
-        return result;
-    }
-}
+     }
+   
+     const graph=new Graph()
 
-const graph = new Graph();
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addVertex('C');
-graph.addVertex('D');
-graph.addEdge('A', 'B');
-graph.addEdge('A', 'C');
-graph.addEdge('B', 'C');
-graph.addEdge('C', 'D');
-
-console.log(graph.bfs('A')); // Output: ['A', 'B', 'C', 'D']
+     graph.addVertex('A')
+     graph.addVertex('B')
+     graph.addVertex('C')
+     graph.addVertex('D')
+     graph.addEdge('A','B')
+     graph.addEdge('A','B')
+     graph.addEdge('B','D')
+     graph.addEdge('B','C')
+     console.log('bfs traversal is '+ graph.bfs('A'))

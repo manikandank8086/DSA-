@@ -1,1 +1,1 @@
- heapify(arr,n ,smaller)
+heapifyDown
