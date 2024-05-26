@@ -1,1 +1,2 @@
-heapifyDown
+
+// trie.insert("apple");

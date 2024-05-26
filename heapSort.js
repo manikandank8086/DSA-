@@ -537,36 +537,163 @@
 // console.log('sorted array is '+ heapSort(array))
 
 
+// function heapify(arr,n,i){
+//     let smaller=i
+//     const leftIndexChild=2*i+1
+//     const rightChildIndex=2*i+2
+
+//     if(leftIndexChild< n && arr[leftIndexChild]<arr[smaller]){
+//         smaller=leftIndexChild
+//     }
+//     if(rightChildIndex<n && arr[rightChildIndex]<arr[smaller]){
+//         smaller=rightChildIndex
+//     }
+//     if(smaller!==i){
+//         [arr[i],arr[smaller]]=[arr[smaller],arr[i]]
+//         heapify(arr,n,smaller)
+//     }
+// }
+
+// function HeapSort(arr){
+//     const n = arr.length
+
+//     for(let i = Math.floor((n/2)-1);i>=0;i--){
+//         heapify(arr,n,i)
+//     }
+//     for(let i =n-1;i>0;i--){
+//         [arr[0],arr[i]]=[arr[i],arr[0]]
+//         heapify(arr,i,0)
+//     }
+//     return arr
+// }
+
+
+// const array=[2,3,1,4,6,2]
+// console.log('sorted arrray is '+ HeapSort(array))
+
+
+// function heapify(arr,n,i){
+//     let smaller= i
+//     let left = 2*i+1
+//     let right= 2*i+2
+
+//     if(left<n && arr[left]< arr[smaller]){
+//         smaller=left
+//     }
+//     if(right<n && arr[right]<arr[smaller]){
+//         smaller=right
+//     }
+//     if(smaller !==i){
+//         [arr[i],arr[smaller]]=[arr[smaller],arr[i]]
+//         heapify(arr,n,smaller)
+//     }
+// }
+
+// function HeapSort(arr){
+//     let n = arr.length
+
+//     for(let i =Math.floor(n/2)-1;i>=0;i--){
+//         heapify(arr,n,i)
+//     }
+//     for(let i= n-1;i>0;i--){
+//         [arr[0],arr[i]]=[arr[i],arr[0]]
+//         heapify(arr,i,0)
+//     }
+//     return arr
+// }
+
+
+// const array=[2,3,1,4,5]
+// console.log('sorted aray is '+ HeapSort(array))
+
+
+// function heapify(arr,n,i){
+//     let smallest=i
+//     const left= 2*i+1
+//     const right= 2*i+2
+
+//     if(left<n && arr[left]<arr[smallest]){smallest=left}
+//     if(right<n && arr[right]<arr[smallest]){smallest=right}
+//     if(smallest!==i){  
+//     [arr[i],arr[smallest]]=[arr[smallest],arr[i]]
+//         heapify(arr,n,smallest)}
+// }
+
+// function HeapSort(arr){
+//     const n = arr.length
+
+//     for(let i = Math.floor(n/2)-1 ;i>=0;i--){
+//         heapify(arr,n,i)
+//     }
+//     for(let i=n-1;i>0;i--){
+//         [arr[0],arr[i]]=[arr[i],arr[0]]
+//         heapify(arr,i,0)
+//     }
+//     return arr
+// }
+// const array =[3,2,5,1]
+// console.log('sorted array is'+ HeapSort(array))
+
+
+// function heapify(arr,n,i){
+//      let smallest = i
+//     const left=2*i+1
+//     const right=2*i+2
+
+//     if(left<n && arr[left]<arr[smallest]){
+//         smallest=left
+//     }
+//     if(right<n && arr[right]<arr[smallest]){
+//         smallest=right
+//     }
+//     if(smallest!==i){
+//         [arr[i],arr[smallest]]=[arr[smallest],arr[i]]
+//         heapify(arr,n,smallest)
+//     }
+// }
+
+// function HeapSort(arr){
+//     const n = arr.length
+
+//     for(let i =Math.floor(n/2)-1;i>=0;i--){
+//         heapify(arr,n,i)
+//     }
+//     for(let i=n-1;i>0;i--){
+//         [arr[0],arr[i]]=[arr[i],arr[0]]
+//         heapify(arr,i,0)
+//     }
+//     return arr
+// }
+// const array=[2,3,1,4,8]
+// console.log('sorted array is '+ HeapSort(array))
+
+
+
 function heapify(arr,n,i){
     let smaller=i
-    const leftIndexChild=2*i+1
-    const rightChildIndex=2*i+2
+    let left=2*i+1
+    let right=2*i+2
 
-    if(leftIndexChild< n && arr[leftIndexChild]<arr[smaller]){
-        smaller=leftIndexChild
+    if(left<n && arr[left]<arr[smaller]){
+        smaller=left
     }
-    if(rightChildIndex<n && arr[rightChildIndex]<arr[smaller]){
-        smaller=rightChildIndex
+    if(right<n && arr[right]< arr[smaller]){
+        smaller=right
     }
     if(smaller!==i){
         [arr[i],arr[smaller]]=[arr[smaller],arr[i]]
         heapify(arr,n,smaller)
     }
 }
-
 function HeapSort(arr){
-    const n = arr.length
-
+    let n = arr.length
     for(let i = Math.floor((n/2)-1);i>=0;i--){
         heapify(arr,n,i)
     }
-    for(let i =n-1;i>0;i--){
+    for(let i = n-1;i>0;i--){
         [arr[0],arr[i]]=[arr[i],arr[0]]
         heapify(arr,i,0)
-    }
-    return arr
+    }return arr
 }
-
-
-const array=[2,3,1,4,6,2]
-console.log('sorted arrray is '+ HeapSort(array))
+const array=[3,2,5,1,6]
+console.log('arrya is '+ HeapSort(array))
