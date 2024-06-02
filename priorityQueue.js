@@ -47,6 +47,45 @@
 // // console.log("Queue size:", pq.size()); // 2
 
 
+// class PriorityQueue{
+//     constructor(){
+//         this.queue=[]
+//     }
+
+//     enqueue(value,priority){
+//         this.queue.push({value,priority})
+//         this.queue.sort((a,b)=>a.priority-b.priority)
+//     }
+
+//     dequeue(){
+//         if(this.isEmpty()){
+//             return null
+//         }
+//        return this.queue.shift().value
+//     }
+
+//     isEmpty(){
+//         return this.queue.length===0
+//     }
+//     peek(){
+//         return this.queue[0].value
+//     }
+
+//     size(){
+//         return this.queue.length
+//     }
+// }
+
+// const queue=new PriorityQueue()
+// queue.enqueue('aa',2)
+// queue.enqueue('bb',1)
+// queue.enqueue('cc',1)
+
+// console.log('size of queue'+ queue.size())
+// console.log('peek of queue'+ queue.peek())
+// console.log('deque value'+ queue.dequeue())
+
+
 class PriorityQueue{
     constructor(){
         this.queue=[]
@@ -56,33 +95,12 @@ class PriorityQueue{
         this.queue.push({value,priority})
         this.queue.sort((a,b)=>a.priority-b.priority)
     }
-
-    dequeue(){
-        if(this.isEmpty()){
-            return null
-        }
-       return this.queue.shift().value
-    }
-
-    isEmpty(){
-        return this.queue.length===0
-    }
-    peek(){
-        return this.queue[0].value
-    }
-
-    size(){
-        return this.queue.length
+    deaqueue(){
+        this.queue.shift().value
     }
 }
-
-const queue=new PriorityQueue()
-queue.enqueue('aa',2)
-queue.enqueue('bb',1)
-queue.enqueue('cc',1)
-
-console.log('size of queue'+ queue.size())
-console.log('peek of queue'+ queue.peek())
-console.log('deque value'+ queue.dequeue())
-
-
+const queue= new PriorityQueue()
+queue.enqueue('mannu',1)
+queue.enqueue('ananthu',3)
+queue.enqueue('vishnu',0)
+console.log(queue.queue)

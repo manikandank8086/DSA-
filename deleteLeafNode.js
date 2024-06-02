@@ -73,68 +73,121 @@
 // bts.InorderTraversal();
 
 
+// class TreeNode{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+// class BinaryTree{
+//     constructor(){
+//         this.root=null
+//     }
+//     insert(value){
+//         this.root= this.insertRecursive(this.root,value)
+//     }
+//     insertRecursive(node,value){
+//         if(node===null){
+//             return new TreeNode(value)
+//         }
+//         if(value<node.value){
+//             node.left=this.insertRecursive(node.left,value)
+//         }
+//         if(value>node.value){
+//             node.right=this.insertRecursive(node.right,value)
+//         }
+//         return node
+//     }
+
+//     removeLeafNode(){
+//         this.root=this.removeRecursive(this.root)
+//     }
+//     removeRecursive(node){
+//         if(!node) return null
+//         node.left=this.removeRecursive(node.left)
+//         node.right=this.removeRecursive(node.right)
+
+//         if(!node.left && !node.right){
+//             return null
+//         }
+//         return node
+//     }
+
+//     PreOrderTraverse(){
+//          this.RecursiveTraverse(this.root)
+//     }
+//     RecursiveTraverse(node){
+//         if(node!==null){
+//             console.log(node.value)
+//             this.RecursiveTraverse(node.left)
+//             this.RecursiveTraverse(node.right)
+//         }
+//     }
+// }
+// const tree=new BinaryTree()
+// tree.insert(3)
+// tree.insert(4)
+// tree.insert(4)
+// tree.insert(6)
+// tree.insert(7)
+
+// console.log('value is ')
+// tree.PreOrderTraverse()
+// tree.removeLeafNode()
+// console.log('after removal')
+// tree.PreOrderTraverse()
+
+
+
 class TreeNode{
     constructor(value){
         this.value=value
-        this.left=null
-        this.right=null
+        this.left = null
+        this.right =null
     }
 }
 class BinaryTree{
     constructor(){
-        this.root=null
+       this.root=null
     }
     insert(value){
-        this.root= this.insertRecursive(this.root,value)
+        this.root=this._insertRecursive(this.root,value)
     }
-    insertRecursive(node,value){
+    _insertRecursive(node,value){
         if(node===null){
             return new TreeNode(value)
         }
         if(value<node.value){
-            node.left=this.insertRecursive(node.left,value)
+             node.left=this._insertRecursive(node.left,value)
         }
         if(value>node.value){
-            node.right=this.insertRecursive(node.right,value)
+            node.right=this._insertRecursive(node.right,value)
         }
         return node
     }
 
-    removeLeafNode(){
-        this.root=this.removeRecursive(this.root)
-    }
-    removeRecursive(node){
-        if(!node) return null
-        node.left=this.removeRecursive(node.left)
-        node.right=this.removeRecursive(node.right)
-
-        if(!node.left && !node.right){
-            return null
+      search(value){
+        return this._searchValue(this.root,value)
+      }
+      _searchValue(node,value){
+        if(node===null){
+            return false
         }
-        return node
-    }
-
-    PreOrderTraverse(){
-         this.RecursiveTraverse(this.root)
-    }
-    RecursiveTraverse(node){
-        if(node!==null){
-            console.log(node.value)
-            this.RecursiveTraverse(node.left)
-            this.RecursiveTraverse(node.right)
+        if(node.value===value){
+            return true
         }
+        if(value<node.value){
+             return this._searchValue(node.left,value)
+        }else{
+           return this._searchValue(node.right,value)
+        }
+      }
     }
-}
-const tree=new BinaryTree()
-tree.insert(3)
-tree.insert(4)
-tree.insert(4)
-tree.insert(6)
-tree.insert(7)
 
-console.log('value is ')
-tree.PreOrderTraverse()
-tree.removeLeafNode()
-console.log('after removal')
-tree.PreOrderTraverse()
-
+const bst = new BinaryTree()
+bst.insert(4)
+bst.insert(3)
+bst.insert(8)
+bst.insert(19)
+console.log('searched value is '+ bst.search(4))

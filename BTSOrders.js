@@ -6,6 +6,8 @@
 //     }
 // }
 
+const nodemon = require("nodemon")
+
 // class BinaryTree{
 //     constructor(){
 //         this.root=null
@@ -692,6 +694,101 @@
 // console.log('preOrder Traversal')
 // bts.PreorderTraversal()
 
+// class TreeNode{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+// class BinaryTree{
+//     constructor(){
+//         this.root=null
+//     }
+//     insert(value){
+//         this.root=this._insertRecursively(this.root,value)
+//     }
+//     _insertRecursively(node,value){
+//         if(node===null){
+//             return new TreeNode(value)
+//         }
+
+//           if(value<node.value){
+//             node.left=this._insertRecursively(node.left,value)
+//           }
+//           if(value>node.value){
+//             node.right=this._insertRecursively(node.right,value)
+//           }
+//           return node
+//     }
+
+//     removeNode(target){
+//      this.root=this._removeValue(this.root,target)
+//     }
+//     _removeValue(node,target){
+//         if(!node){
+//             return  null
+//         }
+
+//         node.left=this._removeValue(node.left,target)
+//         node.right=this._removeValue(node.right,target)
+
+//         if(!node.left && !node.right && node.value===target){
+//             return null
+//         }
+//         return node
+//     }
+
+//     InorderTraversal(){
+//         this.inorderRecursively(this.root)
+//     }
+//     inorderRecursively(node){
+//         if(node !== null){
+//             this.inorderRecursively(node.left)
+//             console.log(node.value)
+//             this.inorderRecursively(node.right)
+//         }
+//     }
+// }
+
+// const bst= new BinaryTree()
+// bst.insert(1)
+// bst.insert(3)
+// bst.insert(5)
+// bst.insert(7)
+// bst.insert(9)
+
+// bst.InorderTraversal()
+// console.log('removing nodes');
+// bst.removeNode(3)
+// bst.InorderTraversal()
+
+
+// class TreeNode{
+//     constructor(value){
+//         this.value=value
+//         this.left=null
+//         this.right=null
+//     }
+// }
+
+// function NodesCount(root){
+//     if(root===null){
+//         return 0
+//     }
+   
+//    return 1+ NodesCount(root.left)+NodesCount(root.right)
+
+// }
+
+// const tree=new TreeNode(2)
+// tree.left=new TreeNode(4)
+// tree.right=new TreeNode(6)
+// tree.left.left= new TreeNode(9)
+// tree.left.right= new TreeNode(8)
+// console.log('nodes count'+ NodesCount(tree))
+
+
 class TreeNode{
     constructor(value){
         this.value=value
@@ -704,59 +801,55 @@ class BinaryTree{
         this.root=null
     }
     insert(value){
-        this.root=this._insertRecursively(this.root,value)
+        this.root=this._insertRecursive(this.root,value)
     }
-    _insertRecursively(node,value){
+    _insertRecursive(node,value){
         if(node===null){
             return new TreeNode(value)
         }
-
-          if(value<node.value){
-            node.left=this._insertRecursively(node.left,value)
-          }
-          if(value>node.value){
-            node.right=this._insertRecursively(node.right,value)
-          }
-          return node
-    }
-
-    removeNode(target){
-     this.root=this._removeValue(this.root,target)
-    }
-    _removeValue(node,target){
-        if(!node){
-            return  null
+        if(value<node.value){
+            node.left=this._insertRecursive(node.left,value)
         }
-
-        node.left=this._removeValue(node.left,target)
-        node.right=this._removeValue(node.right,target)
-
-        if(!node.left && !node.right && node.value===target){
-            return null
+        if(value>node.value){
+            node.right=this._insertRecursive(node.right,value)
         }
         return node
     }
 
-    InorderTraversal(){
-        this.inorderRecursively(this.root)
+    InorderTraverse(){
+        this._inordeRecursive(this.root)
     }
-    inorderRecursively(node){
-        if(node !== null){
-            this.inorderRecursively(node.left)
+    _inordeRecursive(node){
+        if(node!==null){
+            this._inordeRecursive(node.left)
             console.log(node.value)
-            this.inorderRecursively(node.right)
+            this._inordeRecursive(node.right)
         }
     }
+
+    removeLeafNode(target){
+        this._removeLeaf(this.root,target)
+    }
+    _removeLeaf(node,target){
+        if(!node){
+            return null
+        }
+        node.left=this._removeLeaf(node.left,target)
+        node.right=this._removeLeaf(node.right,target)
+
+        if(!node.left && !node.right && node.value===target){
+              return null
+        }
+        return node
+    }
 }
+const tree=new BinaryTree()
+tree.insert(3)
+tree.insert(7)
+tree.insert(9)
+tree.insert(19)
 
-const bst= new BinaryTree()
-bst.insert(1)
-bst.insert(3)
-bst.insert(5)
-bst.insert(7)
-bst.insert(9)
-
-bst.InorderTraversal()
-console.log('removing nodes');
-bst.removeNode(3)
-bst.InorderTraversal()
+tree.InorderTraverse()
+tree.removeLeafNode(19)
+console.log('after remove leaf')
+tree.InorderTraverse()

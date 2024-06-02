@@ -1,2 +1,1 @@
-
-// trie.insert("apple");
+return this._checkBinary(node.left,min,node.value) && this._checkBinary(node.right,max,node.value)

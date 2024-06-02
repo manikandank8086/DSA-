@@ -5,6 +5,9 @@
 //     }
 // }
 
+const e = require("express")
+const nodemon = require("nodemon")
+
 // class Trie{
 //     constructor(){
 //         this.root=new TreeNode()
@@ -403,6 +406,312 @@
 
 // console.log(trie.printAllWords())
 
+// class TreeNode{
+//     constructor(){
+//         this.children={}
+//         this.isEndOfString=false
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root= new TreeNode()
+//     }
+//     insert(word){
+//         let node = this.root
+//           for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char]= new TreeNode()
+//             }
+//             node=node.children[char]
+//           }
+//           node.isEndOfString= true
+//     }
+
+//     printAllWords(){
+//         let words=[]
+//         const travers=(node,path)=>{
+//             if(node.isEndOfString){
+//                 words.push(path.join(''))
+//             }
+//             for(let char in node.children){
+//                     path.push(char)
+//                     travers(node.children[char],path)
+//                      path.pop()
+//             }
+//         }
+        
+//         travers(this.root,[])
+//         return words
+//     }
+// }
+
+// const trie = new Trie()
+// trie.insert('apple')
+// trie.insert('banana')
+// trie.insert('apprico')
+
+// console.log(trie.printAllWords())
+
+// class TreeNode{
+//     constructor(){
+//         this.children={}
+//         this.isEndOfString=false
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root=new TreeNode()
+//     }
+
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char]=new TreeNode()
+//             }
+//             node= node.children[char]
+//         }
+//         node.isEndOfString=true
+//     }
+//       printAll(){
+//         let words=[]
+//         const travers=(node,Path)=>{
+//               if(node.isEndOfString){
+//                 words.push(Path.join(''))
+//               }
+//               for(let char in node.children){
+//                 Path.push(char)
+//                 travers(node.children[char],Path)
+//                 Path.pop()
+//               }
+//         }
+//          travers(this.root,[])
+//          return words
+//       }
+// }
+
+// const trie = new Trie()
+// trie.insert('apprico')
+// trie.insert('banana')
+// trie.insert('apple')
+// console.log(trie.printAll())
+
+// class TreeNode{
+//     constructor() {
+//         this.children={}
+//         this.isEndOfString=false
+//     }
+// }
+
+// class Trie{
+//     constructor(){
+//         this.root=new TreeNode()  
+//      }
+
+//      insert(word){
+//         let node = this.root
+//        for(let char of word){
+//           if(!node.children[char]){
+//             node.children[char]=new TreeNode()
+//           }
+//           node=node.children[char]
+//        }
+//        node.isEndOfString=true
+//      }
+
+//      printAllTrieValues(){
+//         let words=[]
+//         const travers=(node,path)=>{
+//             if(node.isEndOfString){
+//                 words.push(path.join(''))
+//             }
+//             for(let char in node.children){
+//                 path.push(char)
+//                 travers(node.children[char],path)
+//                 path.pop()
+//             }
+//         }
+//         travers(this.root,[])
+//         return words
+//      }
+// }
+
+// const trie=new Trie()
+// trie.insert('apple')
+// trie.insert('banana')
+// trie.insert('apprico')
+
+// console.log(trie.printAllTrieValues())
+
+// class TreeNode{
+//     constructor(){
+//       this.children={}
+//       this.isEndOfString=false
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root= new TreeNode()
+//     }
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char]=new TreeNode()
+//             }
+//             node=node.children[char]
+//         }
+//         node.isEndOfString=true
+//     }
+
+
+//     printAll(){
+//         let words=[]
+//         const travers=(node,path)=>{
+//             if(node.isEndOfString){
+//                 words.push(path.join(''))
+//             }
+//             for(let char in node.children){
+//                 path.push(char)
+//                 travers(node.children[char],path)
+//                 path.pop()
+//             }
+//         }
+//         travers(this.root,[])
+//         return words
+//     }
+// }
+// const trie=new Trie()
+// trie.insert('apple')
+// trie.insert('banana')
+// trie.insert('apprico')
+// console.log(trie.printAll())
+
+// class TreeNode{
+//     constructor(){
+//         this.children={}
+//         this.isEndOfString=false
+//     }
+// }
+// class Trie{
+//     constructor(){
+//         this.root= new TreeNode()
+//     }
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char]=new TreeNode()
+            
+//             }
+//             node=node.children[char]
+//         }
+//         node.isEndOfString=true
+//     }
+
+//     print(){
+//         let words=[]
+//         const travers=(node,path)=>{
+//              if(node.isEndOfString){
+//                 words.push(path.join())
+//              }
+//              for(let char in node.children){
+//                 path.push(char)
+//                 travers(node.children[char],path)
+//                 path.pop()
+//              }
+//         }
+//         travers(this.root,[])
+//         return words
+//     }
+//     search(word){
+//         let  node = this.root
+//         for(let char of word){
+//              if(!node.children[char]){
+//                 return false
+//              }
+//              node=node.children[char]
+//         }
+//         return node.isEndOfString
+//     }
+// }
+// const trie= new Trie()
+// trie.insert('apprico')
+// console.log(trie.print())
+
+// class TreeNode{
+//     constructor() {
+//        this.children={}
+//        this.isEndString=false
+//        this.count=0
+//     }
+// }
+
+// class Trie{
+//     constructor(){
+//         this.root= new TreeNode()
+//         this.mostChar=''
+//         this.mostCount=0
+//     }
+//     insert(word){
+//         let node = this.root
+//         for(let char of word){
+//             if(!node.children[char]){
+//                 node.children[char]=new TreeNode()
+//             }
+//             node=node.children[char]
+//         }
+//         node.isEndString=true
+//         node.mostCount =+1
+
+
+//         if(node.count>this.mostCount){
+//             this.mostCount=node.count
+//             this.mostChar=word
+//         }
+//     }
+
+//     mostRepeatedValue(){
+//          for(let i =0;i<this.count;i++){
+//             console.log(this.mostChar)
+//          }
+//     }
+
+//     search(word){
+//      let node = this.root
+//      for(let char of word){
+//         if(!node.children[char]){
+//             return false
+//         }
+//         node=node.children[char]
+//      }
+//      return node.isEndString
+//     }
+
+//     print(){
+//         let words=[]
+//         const travers=(node,path)=>{
+//             if(node.isEndString){
+//                 words.push(path.join(''))
+//             }
+//             for(let char in node.children){
+//                 path.push(char)
+//                 travers(node.children[char],path)
+//                 path.pop()
+//             }
+//         }
+//         travers(this.root,[])
+//         return words
+//     }
+// }
+
+// const trie= new Trie()
+// trie.insert('appleeeee')
+
+
+// trie.mostRepeatedValue()
+
+
 class TreeNode{
     constructor(){
         this.children={}
@@ -411,40 +720,62 @@ class TreeNode{
 }
 class Trie{
     constructor(){
-        this.root= new TreeNode()
+        this.root = new TreeNode()
     }
     insert(word){
         let node = this.root
-          for(let char of word){
+        for(let char of word){
             if(!node.children[char]){
-                node.children[char]= new TreeNode()
+                node.children[char]=new TreeNode()
             }
             node=node.children[char]
-          }
-          node.isEndOfString= true
+        }
+         node.isEndOfString=true
     }
 
-    printAllWords(){
-        let words=[]
-        const travers=(node,path)=>{
-            if(node.isEndOfString){
-                words.push(path.join(''))
+    search(word){
+        let node = this.root
+        for(let char of word){
+            if(!node.children[char]){
+                return false
             }
-            for(let char in node.children){
-                    path.push(char)
-                    travers(node.children[char],path)
-                     path.pop()
-            }
+            node=node.children[char]
         }
-        
-        travers(this.root,[])
-        return words
+        return node.isEndOfString
+    }
+
+    startWith(word){
+        let node =this.root
+        for(let char of word){
+            if(!node.children[char]){
+                return false
+            }
+            node=node.children[char]
+        }
+        return true
+    }
+
+    print(){
+       let words=[]
+       const travers=(node,path)=>{
+          if(node.isEndOfString){
+            words.push(path.join(''))
+          }
+          for(let char in node.children){
+            path.push(char)
+            travers(node.children[char],path)
+            path.pop()
+          }
+       }
+       travers(this.root,[])
+       return words
     }
 }
-
-const trie = new Trie()
+const trie=new Trie()
 trie.insert('apple')
 trie.insert('banana')
 trie.insert('apprico')
+console.log(trie.print())
 
-console.log(trie.printAllWords())
+console.log(trie.search('applse'))
+console.log(trie.startWith('b'))

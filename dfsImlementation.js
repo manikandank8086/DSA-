@@ -253,52 +253,98 @@
 
 
 
-class Graph {
-    constructor(){
-        this.adjcacencyList={}
-    }
-      addVertex(vertex){
-        if(!this.adjcacencyList[vertex]){
-            this.adjcacencyList[vertex]=[]
-        }
-      }
-      addEdge(vertex1,vertex2){
-        this.adjcacencyList[vertex1].push(vertex2)
-        this.adjcacencyList[vertex2].push(vertex1)
-      }
+// class Graph {
+//     constructor(){
+//         this.adjcacencyList={}
+//     }
+//       addVertex(vertex){
+//         if(!this.adjcacencyList[vertex]){
+//             this.adjcacencyList[vertex]=[]
+//         }
+//       }
+//       addEdge(vertex1,vertex2){
+//         this.adjcacencyList[vertex1].push(vertex2)
+//         this.adjcacencyList[vertex2].push(vertex1)
+//       }
 
-      dfs(start){
-        const visited={}
-        const result=[]
-        const stack=[start]
+//       dfs(start){
+//         const visited={}
+//         const result=[]
+//         const stack=[start]
 
-        visited[start]=true
+//         visited[start]=true
 
-        while(stack.length){
-            const currentVertex=stack.pop()
-            result.push(currentVertex)
+//         while(stack.length){
+//             const currentVertex=stack.pop()
+//             result.push(currentVertex)
 
-            this.adjcacencyList[currentVertex].forEach((neighbor)=>{
-                if(!visited[neighbor]){
-                    visited[neighbor]=true
-                    stack.push(neighbor)
-                }
-            })
-        }
-        return result
-      }
+//             this.adjcacencyList[currentVertex].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     stack.push(neighbor)
+//                 }
+//             })
+//         }
+//         return result
+//       }
+// }
+
+// const graph = new Graph()
+
+// graph.addVertex('A')
+// graph.addVertex('B')
+// graph.addVertex('C')
+// graph.addVertex('D')
+
+// graph.addEdge('A','B')
+// graph.addEdge('A','C')
+// graph.addEdge('B','D')
+// graph.addEdge('B','C')
+
+// console.log('dfs is '+ graph.dfs('A'))
+
+class Graph{
+  constructor(){
+    this.adjcencyList={}
+  }
+  addVertex(vertex){
+     if(!this.adjcencyList[vertex]){
+      this.adjcencyList[vertex]=[]
+     }
+  }
+  addEdges(vertex1,vertex2){
+    this.adjcencyList[vertex1].push(vertex2)
+    this.adjcencyList[vertex2].push(vertex1)
+  }
+
+  dfs(start){
+    const result=[]
+    const visited={}
+    const stack=[start]
+    visited[start]=true
+    while(stack.length){
+      const currentVertex=stack.pop()
+      result.push(currentVertex)
+
+      this.adjcencyList[currentVertex].forEach((neighbor)=>{
+         if(!visited[neighbor]){
+          visited[neighbor]=true
+          stack.push(neighbor)
+         }
+      })
+  }
+  return result
 }
-
-const graph = new Graph()
-
+}
+const graph=new Graph()
 graph.addVertex('A')
 graph.addVertex('B')
 graph.addVertex('C')
 graph.addVertex('D')
+graph.addEdges('A','B')
+graph.addEdges('A','C')
+graph.addEdges('B','C')
+graph.addEdges('B','D')
 
-graph.addEdge('A','B')
-graph.addEdge('A','C')
-graph.addEdge('B','D')
-graph.addEdge('B','C')
 
-console.log('dfs is '+ graph.dfs('A'))
+console.log('graph is '+ graph.dfs('A'))

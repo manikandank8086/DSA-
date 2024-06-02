@@ -576,50 +576,146 @@
 
 //  console.log('dfs is '+ graph.dfs('A'))
 
-class Graph{
-    constructor(){
-        this.adjcencyList={}
-    }
-    addVertex(vertexr){
-        if(!this.adjcencyList[vertexr]){
-            this.adjcencyList[vertexr]=[]
-        }
-    }
-    addEdge(vertex1,vertex2){
-        this.adjcencyList[vertex1].push(vertex2)
-        this.adjcencyList[vertex2].push(vertex1)
-    }
+// class Graph{
+//     constructor(){
+//         this.adjcencyList={}
+//     }
+//     addVertex(vertexr){
+//         if(!this.adjcencyList[vertexr]){
+//             this.adjcencyList[vertexr]=[]
+//         }
+//     }
+//     addEdge(vertex1,vertex2){
+//         this.adjcencyList[vertex1].push(vertex2)
+//         this.adjcencyList[vertex2].push(vertex1)
+//     }
 
-    dfs(start){
-        const result=[]
-        const visited={}
-        const stack=[start]
+//     dfs(start){
+//         const result=[]
+//         const visited={}
+//         const stack=[start]
 
-        visited[start]=true
+//         visited[start]=true
          
-          while(stack.length){
-            const currentVertex=stack.pop()
-            result.push(currentVertex)
+//           while(stack.length){
+//             const currentVertex=stack.pop()
+//             result.push(currentVertex)
 
-            this.adjcencyList[currentVertex].forEach((neighbor)=>{
-                if(!visited[neighbor]){
-                    visited[neighbor]= true
-                    stack.push(neighbor)
-                }
-            })
-          }
-          return result
-    }
-}
+//             this.adjcencyList[currentVertex].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]= true
+//                     stack.push(neighbor)
+//                 }
+//             })
+//           }
+//           return result
+//     }
+// }
 
-const graph= new Graph()
-  graph.addVertex('A')
-  graph.addVertex('B')
-  graph.addVertex('C')
-  graph.addVertex('D')
-   graph.addEdge('A','B')
-   graph.addEdge('A','C')
-   graph.addEdge('B','D')
-   graph.addEdge('B','C')
+// const graph= new Graph()
+//   graph.addVertex('A')
+//   graph.addVertex('B')
+//   graph.addVertex('C')
+//   graph.addVertex('D')
+//    graph.addEdge('A','B')
+//    graph.addEdge('A','C')
+//    graph.addEdge('B','D')
+//    graph.addEdge('B','C')
 
-   console.log('dfs is '+ graph.dfs('A'))
+//    console.log('dfs is '+ graph.dfs('A'))
+
+// class Graph{
+//     constructor() {
+//         this.adjacencyList={}
+//     }
+//     addVertex(vertex){
+//         if(!this.adjacencyList[vertex]){
+//             this.adjacencyList[vertex]=[]
+//         }
+//     }
+//     addEdges(vertex1,vertex2){
+//          this.adjacencyList[vertex1].push(vertex2)
+//          this.adjacencyList[vertex2].push(vertex1)
+//     }
+
+//     dfs(start){
+//         const result=[]
+//         const visited={}
+//         const stack=[start]
+
+//         visited[start]=true
+
+//         while(stack.length){
+//             const currentVertex=stack.pop()
+//             result.push(currentVertex)
+
+//             this.adjacencyList[currentVertex].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     stack.push(neighbor)
+//                 }
+//             })
+//         }
+//         return result
+//     }
+// }
+// const graph= new Graph()
+// graph.addVertex('A')
+// graph.addVertex('B')
+// graph.addVertex('C')
+// graph.addVertex('D')
+
+// graph.addEdges('A','B')
+// graph.addEdges('A','C')
+// graph.addEdges('B','C')
+// graph.addEdges('B','D')
+
+// console.log(graph.dfs('A'))
+
+// class Graph{
+//     constructor(){
+//         this.adjcencyList= {}
+//     }
+
+//     addVertex(vertex){
+//         if(!this.adjcencyList[vertex]){
+//             this.adjcencyList[vertex]=[]
+//         }
+//     }
+
+//     addEdges(vertex1,vertex2){
+//         this.adjcencyList[vertex1].push(vertex2)
+//         this.adjcencyList[vertex2].push(vertex1)
+//     }
+
+//     bfs(start){
+//         const result=[]
+//         const visited={}
+//         const queue=[start]
+//         visited[start]=true
+
+//         while(queue.length){
+//             const currentVertex= queue.shift()
+//             result.push(currentVertex)
+//             this.adjcencyList[currentVertex].forEach((neighbor)=>{
+//                 if(!visited[neighbor]){
+//                     visited[neighbor]=true
+//                     queue.push(neighbor)
+//                 }
+//             })
+//         }
+//         return result
+
+//     }
+// }
+
+// const graph= new Graph()
+// graph.addVertex('a')
+// graph.addVertex('b')
+// graph.addVertex('c')
+// graph.addVertex('d')
+// graph.addEdges('a','b')
+// graph.addEdges('a','b')
+// graph.addEdges('b','c')
+// graph.addEdges('b','d')
+// console.log(graph.bfs())

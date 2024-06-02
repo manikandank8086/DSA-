@@ -3,6 +3,9 @@
 //         this.heap = [];
 //     }
 
+const e = require("express")
+const nodemon = require("nodemon")
+
 //     buildHeap(arr) {
 //         this.heap = arr;
 //         for (let i = Math.floor(this.heap.length / 2); i >= 0; i--) {
@@ -714,67 +717,321 @@
 // console.log('builded heap is '+ heap.heap)
 
 
-class Heap{
+// class Heap{
+//     constructor(){
+//         this.heap=[]
+//     }
+
+//     buildHeap(arr){
+//         this.heap=arr
+//         for(let i = Math.floor(this.heap.length/2);i>=0;i--){
+//             this.heapifyDown(i)
+//         }
+//     }
+
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp(this.heap.length-1)
+//     }
+
+//     remove(){
+//         const min = this.heap[0]
+//         this.heap[0]= this.heap.pop()
+//         this.heapifyDown(0)
+//         return min
+//     }
+      
+//     smallestValue(){
+//         return this.heap[0]
+//     }
+
+//     heapifyUp(index){
+//         const parentIndex= Math.floor((index-1)/2)
+
+//         while(index>0 && this.heap[index]<this.heap[parentIndex]){
+//             [this.heap[index],this.heap[parentIndex]]=[this.heap[parentIndex],this.heap[index]]
+//             index=parentIndex
+//             parentIndex= Math.floor((index-1)/2)
+//         }
+//     }
+
+//     heapifyDown(index){
+//         let  smaller= index
+//         const leftChildIndex= 2*index+1
+//         const rightChildIndex= 2*index+2
+
+//         if(leftChildIndex< this.heap.length && this.heap[leftChildIndex]< this.heap[smaller]){
+//             smaller=leftChildIndex
+//         }
+//         if(rightChildIndex< this.heap.length && this.heap[rightChildIndex]< this.heap[smaller]){
+//             smaller= rightChildIndex
+//         }
+//         if(smaller !== index){
+//             [this.heap[index],this.heap[smaller]]=[this.heap[smaller],this.heap[index]]
+//             this.heapifyDown(smaller)
+//         }
+//     }
+// }
+
+// const heap= new Heap()
+// heap.buildHeap([2,3,1,4,5])
+// console.log('build heap is '+ heap.heap)
+// heap.insert(11)
+// console.log('insertion then'+ heap.heap)
+// console.log('removing value is '+ heap.remove())
+// console.log('removing value'+ heap.heap)
+// console.log('smallest value is '+  heap.smallestValue())
+
+
+
+// class MinHeap{
+//     constructor(){
+//         this.heap=[]
+//     }
+//     buildHeap(arr){
+//         this.heap=arr
+//         for(let i =Math.floor((this.heap.length)/2);i>=0;i--){
+//             this.heapfiDown(i)
+//         }
+//     }
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp(this.heap.length-1)
+//     }
+
+//     heapifyUp(index){
+//         let parentIndex= Math.floor((index-1)/2)
+
+//         while(index>0 && this.heap[index]< this.heap[parentIndex]){
+//             [this.heap[index],this.heap[parentIndex]]=[this.heap[parentIndex],this.heap[index]]
+//              index=parentIndex
+//              parentIndex=Math.floor((index-1)/2)
+//         }
+//     }
+
+//     remove(){
+//         let min= this.heap[0]
+//         this.heap[0]= this.heap.pop()
+//         this.heapifyUp(0)
+//         return min
+//     }
+//     heapfiDown(index){
+//         let smaller=index
+//         let left= 2*index+1
+//         let right=2*index+2
+
+//         if(left<this.heap.length && this.heap[left]<this.heap[smaller]){
+//             smaller=left
+//         }
+//         if(right<this.heap.length && this.heap[right]<this.heap[smaller]){
+//             smaller=right
+//         }
+//         if(smaller!==index){
+//             [this.heap[index],this.heap[smaller]]=[this.heap[smaller],this.heap[index]]
+//             this.heapfiDown(smaller)
+//         }
+//     }
+// }
+
+// const heap=new MinHeap()
+// heap.buildHeap([4,3,6,2,8])
+// console.log('heap is '+ heap.heap)
+// heap.insert(0)
+// console.log('after insertion is '+ heap.heap)
+// console.log('removed value is '+ heap.remove())
+// console.log('after heap is '+ heap.heap)
+
+
+// class Minheap{
+//     constructor(){
+//         this.heap=[]
+//     }
+//     buildHeap(arr){
+//         this.heap=arr
+//         for(let i = Math.floor((this.heap.length)/2);i>=0;i--){
+//             this.heapifyDown(i)
+//         }
+//     }
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp(this.heap.length-1)
+//     }
+
+//     heapifyUp(index){
+//         let parent= Math.floor((index-1)/2)
+//          while(index>0 && this.heap[index]< this.heap[parent]){
+//             [this.heap[index],this.heap[parent]]=[this.heap[parent],this.heap[index]]
+//             index=parent
+//             parent=Math.floor((index-1)/2)
+//          }
+//     }
+
+//     heapifyDown(index){
+//         let smallest= index
+//         let left= 2*index+1
+//         let right= 2*index+2
+
+//         if(left<this.heap.length && this.heap[left]< this.heap[smallest]){
+//             smallest=left
+//         }
+//         if(right<this.heap.heap && this.heap[right]< this.heap[smallest]){
+//             smallest=right
+//         }
+//         if(smallest!==index){
+//             [this.heap[index],this.heap[smallest]]=[this.heap[smallest],this.heap[index]]
+//             this.heapifyDown(smallest)
+//         }
+//     }
+// }
+
+// const heap=new Minheap()
+// heap.buildHeap([4,2,6,1])
+// console.log('heap is '+ heap.heap)
+// heap.insert(0)
+// console.log('after insertion '+ heap.heap)
+
+// class Minheap{
+//     constructor(){
+//         this.heap=[]
+//     }
+//     buildHeap(arr){
+//         this.heap=arr
+//         for(let i = Math.floor((this.heap.length)/2);i>=0;i--){
+//             this.heapfiDown(i)
+//         }
+//     }
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapfiUp(this.heap.length-1)
+//     }
+
+//       heapfiDown(index){
+//         let smaller= index
+//         let left = 2*index+1
+//         let right= 2*index+2
+
+//         if(left<this.heap.length && this.heap[left]<this.heap[smaller]){
+//             smaller=left
+//         }
+//         if(right<this.heap.length && this.heap[right]< this.heap[smaller]){
+//             smaller=right
+//         }
+//         if(smaller!==index){
+//             [this.heap[index],this.heap[smaller]]=[this.heap[smaller],this.heap[index]]
+//              this.heapfiDown(smaller)
+//         }
+//       }
+      
+
+//       heapfiUp(index){
+//         let parentIndex=Math.floor((index-1)/2)
+//          while(index>0 && this.heap[index]<this.heap[parentIndex]){
+//             [this.heap[index],this.heap[parentIndex]]=[this.heap[parentIndex],this.heap[index]]
+//             index=parentIndex
+//             parentIndex=Math.floor((index-1)/2)
+//          }
+//       }
+// }
+
+// const heap= new Minheap()
+// heap.buildHeap([4,3,5,2,7])
+// console.log(heap.heap)
+// heap.insert(6)
+// console.log('after insertion')
+// console.log(heap.heap)
+
+// class MaxHeap{
+//     constructor(){
+//         this.heap=[]
+//     }
+
+//     buildHeap(arr){
+//         this.heap=arr
+//         for(let i= Math.floor((this.heap.length-2)/2);i>=0;i--){
+//             this.heapifyDown(i)
+//         }
+//     }
+
+//     insert(value){
+//         this.heap.push(value)
+//         this.heapifyUp(this.heap.length-1)
+//     }
+
+//     heapifyDown(index){
+//         let largest=index
+//         let leftIndex=2*index+1
+//         let rightChild=2*index+2
+//         if(leftIndex<this.heap.length && this.heap[leftIndex]>this.heap[largest]){
+//             largest=leftIndex
+//         }
+//         if(rightChild<this.heap.length && this.heap[rightChild]>this.heap[largest]){
+//             largest=rightChild
+//         }
+//         if(largest!==index){
+//             [this.heap[index],this.heap[largest]]=[this.heap[largest],this.heap[index]]
+
+//             this.heapifyDown(largest)
+//         }
+//     }
+
+//     heapifyUp(index){
+//         let parent=Math.floor((index-1)/2)
+//         while(index>0 && this.heap[index]>this.heap[parent]){
+//             [this.heap[index],this.heap[parent]]=[this.heap[parent],this.heap[index]]
+//             index=parent
+//             parent=Math.floor((index-1)/2)
+//         }
+//     }
+// }
+
+// const heap=new MaxHeap()
+// heap.buildHeap([4,3,5,1,6])
+// console.log('build '+ heap.heap)
+// heap.insert(77)
+// console.log('after insertion'+ heap.heap)
+
+
+class MaxHeap{
     constructor(){
         this.heap=[]
     }
-
     buildHeap(arr){
         this.heap=arr
-        for(let i = Math.floor(this.heap.length/2);i>=0;i--){
+        for(let i = Math.floor((this.heap.length/2)-1);i>=0;i--){
             this.heapifyDown(i)
         }
     }
-
     insert(value){
         this.heap.push(value)
-        this.heapifyUp(this.heap.length-1)
+        this.heapfiUp(this.heap.length-1)
     }
 
-    remove(){
-        const min = this.heap[0]
-        this.heap[0]= this.heap.pop()
-        this.heapifyDown(0)
-        return min
-    }
-      
-    smallestValue(){
-        return this.heap[0]
-    }
-
-    heapifyUp(index){
-        const parentIndex= Math.floor((index-1)/2)
-
-        while(index>0 && this.heap[index]<this.heap[parentIndex]){
-            [this.heap[index],this.heap[parentIndex]]=[this.heap[parentIndex],this.heap[index]]
-            index=parentIndex
-            parentIndex= Math.floor((index-1)/2)
+    heapfiUp(index){
+        let parent=Math.floor((index-1)/2)
+        while(index>0 && this.heap[index]>this.heap[parent]){
+            [this.heap[index],this.heap[parent]]=[this.heap[parent],this.heap[index]]
+            index=parent
+            parent=Math.floor((index-1)/2)
         }
     }
-
     heapifyDown(index){
-        let  smaller= index
-        const leftChildIndex= 2*index+1
-        const rightChildIndex= 2*index+2
-
-        if(leftChildIndex< this.heap.length && this.heap[leftChildIndex]< this.heap[smaller]){
-            smaller=leftChildIndex
+        let smaller=index
+        let leftIndex=2*index+1
+        let rightIndex=2*index+2
+        if(leftIndex<this.heap.length && this.heap[leftIndex]>this.heap[smaller]){
+            smaller=leftIndex
         }
-        if(rightChildIndex< this.heap.length && this.heap[rightChildIndex]< this.heap[smaller]){
-            smaller= rightChildIndex
+        if(rightIndex<this.heap.length && this.heap[rightIndex]>this.heap[smaller]){
+            smaller=rightIndex
         }
-        if(smaller !== index){
+        if(smaller!==index){
             [this.heap[index],this.heap[smaller]]=[this.heap[smaller],this.heap[index]]
             this.heapifyDown(smaller)
         }
     }
 }
-
-const heap= new Heap()
-heap.buildHeap([2,3,1,4,5])
-console.log('build heap is '+ heap.heap)
-heap.insert(11)
-console.log('insertion then'+ heap.heap)
-console.log('removing value is '+ heap.remove())
-console.log('removing value'+ heap.heap)
-console.log('smallest value is '+  heap.smallestValue())
+const heap=new MaxHeap()
+heap.buildHeap([3,2,5,1])
+console.log(heap.heap)
+heap.insert(0)
+console.log('after insertion '+ heap.heap)
